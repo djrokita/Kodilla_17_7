@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/* {
+	outline: 1px solid red;
+}
+*/
+body {
+	margin: 0;
+	background: lightgray;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+}
+
+header {
+	padding: 0 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #c98510;
+}
+
+.logo {
+	display: block;
+	height: 50px;
+}
+
+.logo img {
+	vertical-align: bottom;	
+}
+
+.nav {
+	padding: 0;
+	list-style: none;
+	font-size: 22px;
+	font-weight: 600;
+	margin: 0;
+}
+
+.nav li {
+	display: inline-block;
+	margin: 30px;
+}
+
+.nav li > a {
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: #222;
+}
+
+.hero {
+	height: 100vh;
+	min-height: 700px;
+	background-image: url('https://images.pexels.com/photos/21696/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+	display: flex;
+	align-items: center;
+}
+
+.container {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #fff;
+	transform: translateY(-50%);
+}
+
+.entry-box {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	color: orange;
+}
+
+.entry-box h1 {
+	margin: 0;
+	font-size: 32px;
+	text-transform: uppercase;
+}
+
+.entry-box p {
+	margin: 30px 0;
+}
+
+.entry-box .btn {
+	font-size: 22px;
+	border: none;
+	padding: 10px 20px;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background-color: #c98510;
+}
+
+.entry-box .btn:hover {
+	cursor: pointer;
+}
+
+.entry-box .btn:active {
+	background: gold;
+}
+
+footer {
+	min-height: 70px;
+	color: orange;
+	font-weight: 600;
+	letter-spacing: 1px;
+	background: #111;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+footer p {
+	margin: 0;
+	padding: 10px;
+}
