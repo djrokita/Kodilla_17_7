@@ -4,10 +4,10 @@ html
 		meta(charset="utf-8")
 		title="New Life"
 		style
-			include ../styles/style.css
+			include ../styles/style-greetings.css
 	body
 		header
-			a(href="#").logo
+			a(href="/start").logo
 				img(src=logo, alt="logo")
 			ul.nav
 				li 
@@ -21,6 +21,6 @@ html
 				div.entry-box
 					h1 Vulgus profanum
 					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget urna nec leo semper tincidunt quis non ante. Donec quis velit et erat tincidunt vulputate. Mauris sollicitudin nulla ipsum, ut tincidunt dolor porta vitae.
-					button.btn start
+					a(href="/auth/google").btn start
 		footer
-			p All rights permitted!
+			p &copy;2017 All rights permitted!

@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-/* {
-	outline: 1px solid red;
-}
-*/
+
 body {
 	margin: 0;
 	background: lightgray;
@@ -47,15 +44,13 @@ header {
 }
 
 .hero {
-	height: 100vh;
 	min-height: 700px;
-	background-image: url('https://images.pexels.com/photos/21696/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb');
+	background-image: url('https://images.pexels.com/photos/250609/pexels-photo-250609.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	text-align: center;
-	display: flex;
-	align-items: center;
+	background-attachment: fixed;
+	padding: 50px;
 }
 
 .container {
@@ -63,41 +58,38 @@ header {
 	margin-left: auto;
 	margin-right: auto;
 	color: #fff;
-	transform: translateY(-50%);
 }
 
-.entry-box {
-	background-color: rgba(0, 0, 0, 0.5);
+.story {
+	background-color: rgba(0, 0, 0, 0.7);
 	padding: 20px;
 	color: orange;
 }
 
-.entry-box h1 {
+.story h1 {
+	text-align: center;
 	margin: 0;
 	font-size: 32px;
 	text-transform: uppercase;
 }
 
-.entry-box p {
+.story p {
 	margin: 30px 0;
+	text-align: justify;
 }
 
-.entry-box .btn {
-	font-size: 22px;
-	border: none;
-	padding: 10px 20px;
-	letter-spacing: 1.5px;
-	text-transform: uppercase;
-	font-weight: bold;
-	background-color: #c98510;
+.story a {
+	text-decoration: none;
+	color: inherit;
+	font-style: italic;
+	transition: all 0.3s ease-in-out;
+	text-align: right;
+	display: block;
 }
 
-.entry-box .btn:hover {
-	cursor: pointer;
-}
-
-.entry-box .btn:active {
-	background: gold;
+.story a:hover {
+	text-decoration: underline;
+	color: gold;
 }
 
 footer {

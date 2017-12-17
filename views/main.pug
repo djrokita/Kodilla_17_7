@@ -1,0 +1,35 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title="New Life"
+		style
+			include ../styles/style-main.css
+	body
+		header
+			a(href="/start").logo
+				img(src=logo, alt="logo")
+			ul.nav
+				li 
+					a(href="#") About us
+				li 
+					a(href="#") Enroll
+				li 
+					a(href="#") Contact
+		section.hero
+			div.container
+				div.story
+					h1 #{story1.title}
+					p #{story1.content}
+					a(href="/auth/google") Read more...
+				div.story
+					h1 #{story2.title}
+					p #{story2.content}
+					a(href="/auth/google") Read more...
+				div.story
+					h1 #{story3.title}
+					p #{story3.content}
+					a(href="/auth/google") Read more...
+
+		footer
+			p &copy;2017 All rights permitted!
