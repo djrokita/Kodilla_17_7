@@ -1,25 +1,52 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+let passport = require("passport");
+let GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const config = require("./config");
+let googleProfile = {};
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: config.GOOGLE_CLIENT_ID,
+      clientSecret: config.GOOGLE_CLIENT_SECRET,
+      callbackURL: config.CALLBACK_URL
+    },
+    function(accessToken, refreshToken, profile, cb) {
+      googleProfile = {
+        id: profile.id,
+        displayName: profile.displayName
+      };
+      cb(null, profile);
+    }
+  )
+);
 
 app.set("view engine", "pug");
 app.set("views", "./views");
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use("/start", express.static("styles"));
+app.use(express.static("styles"));
 
-app.get("/", (req, res) => {
-  console.log("Sent request GET");
-  res.send("To jest tylko próbne zapytanie do serwera");
-});
-
-app.get("/start", (req, res) =>
+app.get("/", (req, res) =>
   res.render("greetings", {
+    user: req.user,
     logo: "http://via.placeholder.com/100x50"
   })
 );
 
-app.get("/auth/google", (req, res) =>
+app.get("/logged", (req, res) =>
   res.render("main", {
+    user: googleProfile,
     logo: "http://via.placeholder.com/100x50",
     story1: {
       title: "What's it for?",
@@ -36,6 +63,23 @@ app.get("/auth/google", (req, res) =>
       content:
         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec condimentum sagittis mi id sollicitudin. Mauris mattis, massa at ultrices convallis, diam massa convallis urna, ut vulputate dui risus ut dolor. Nam nec auctor ex, ac dapibus augue. Cras varius odio sed odio dapibus vestibulum. Pellentesque ac mauris nibh. Morbi consectetur a odio id scelerisque. Nam interdum nec enim ac varius. Proin quis orci sapien. Nam ut ligula placerat, molestie massa in, tristique libero."
     }
+  })
+);
+
+//Passport routes
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/logged",
+    failureRedirect: "/"
+  })
+);
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"]
   })
 );
 
